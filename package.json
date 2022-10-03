@@ -1,0 +1,33 @@
+{
+  "name": "0xbitcoin-miner",
+  "version": "2.10.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azlehria/0xbitcoin-gpuminer.git"
+  },
+  "engines": {
+    "node": ">=8.9"
+  },
+  "description": "Find hashes, get money.",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-gyp rebuild",
+    "package": "pkg -o 0xbitcoin-miner -t host index.js",
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jayson": "^2.0.5",
+    "nan": "^2.9.2",
+    "prompt": "^1.0.0",
+    "web3-utils": "^1.0.0-beta.30"
+  },
+  "pkg": {
+    "scripts": [],
+    "assets": []
+  },
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  }
+}
