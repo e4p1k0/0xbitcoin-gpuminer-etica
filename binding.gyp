@@ -19,7 +19,7 @@
         "cpp/hybridminer/cuda_sha3.cu"
       ],
       'cflags_cc!': ['-std=gnu++0x'],
-      'cflags_cc+': [ '-march=native', '-O3', '-std=c++14', '-Wall' ],
+      'cflags_cc+': [ '-O3', '-std=c++14', '-Wall' ],
 
 # Comment next line for test builds
       'defines': [ 'NDEBUG'],
@@ -37,24 +37,24 @@
              'process_outputs_as_sources': 0,
              'action': ['nvcc -c <(_inputs) -o <(_outputs)\
                         -cudart static -m64 -use_fast_math -O3',
-                        '-gencode=arch=compute_70,code=\\\"sm_70,compute_70\\\"',
+                        '-gencode=arch=compute_60,code=\\\"sm_60,compute_60\\\"',
                         '-gencode=arch=compute_61,code=\\\"sm_61,compute_61\\\"',
-                        '-gencode=arch=compute_52,code=\\\"sm_52,compute_52\\\"',
-                        '-gencode=arch=compute_50,code=\\\"sm_50,compute_50\\\"',
-                        '-gencode=arch=compute_35,code=\\\"sm_35,compute_35\\\"',
-                        '-gencode=arch=compute_30,code=\\\"sm_30,compute_30\\\"']
+                        '-gencode=arch=compute_70,code=\\\"sm_70,compute_70\\\"',
+                        '-gencode=arch=compute_75,code=\\\"sm_75,compute_75\\\"',
+                        '-gencode=arch=compute_80,code=\\\"sm_80,compute_80\\\"',
+                        '-gencode=arch=compute_86,code=\\\"sm_86,compute_86\\\"']
             },
             {'rule_name': 'cuda on linux',
              'message': "compile cuda file on linux",
              'process_outputs_as_sources': 1,
              'action': ['nvcc','-std=c++14','-m64','-Xcompiler=\"-fpic\"',
                         '-c','<@(_inputs)','-o','<@(_outputs)',
-                        '-gencode=arch=compute_70,code=\"sm_70,compute_70\"',
+                        '-gencode=arch=compute_60,code=\"sm_60,compute_60\"',
                         '-gencode=arch=compute_61,code=\"sm_61,compute_61\"',
-                        '-gencode=arch=compute_52,code=\"sm_52,compute_52\"',
-                        '-gencode=arch=compute_50,code=\"sm_50,compute_50\"',
-                        '-gencode=arch=compute_35,code=\"sm_35,compute_35\"',
-                        '-gencode=arch=compute_30,code=\"sm_30,compute_30\"']
+                        '-gencode=arch=compute_70,code=\"sm_70,compute_70\"',
+                        '-gencode=arch=compute_75,code=\"sm_75,compute_75\"',
+                        '-gencode=arch=compute_80,code=\"sm_80,compute_80\"',
+                        '-gencode=arch=compute_86,code=\"sm_86,compute_86\"']
             }
           ]
         ]
